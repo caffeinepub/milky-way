@@ -1,0 +1,56 @@
+{
+  "kind": "build_request",
+  "title": "Fix login failure caused by access-control role assignment error",
+  "priority": "high",
+  "requirements": [
+    {
+      "id": "REQ-16",
+      "text": "Update the backend login flow to stop triggering the authorization error \"only admin can assign user roles\" when a user logs in with the valid credentials (Darling/181818 or MyHoney/182518). Specifically, remove or replace the current role-assignment call that requires admin privileges during login so that successful credential verification results in the caller being treated as authenticated for subsequent operations (profiles, messages, gallery) without needing any admin initialization or admin token.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-6"
+        ],
+        "quotes": [
+          "When I click login, it says \"only admin can assign user roles\""
+        ]
+      },
+      "acceptanceCriteria": [
+        "Logging in with username \"Darling\" and password \"181818\" succeeds without any authorization/admin-related error.",
+        "Logging in with username \"MyHoney\" and password \"182518\" succeeds without any authorization/admin-related error.",
+        "After a successful login, the caller can call getCallerUserProfile, getMessages, sendMessage, updateProfile, and getGallery without receiving \"Unauthorized\" traps.",
+        "Logging in with any other username or an incorrect password still fails with an authentication error (not an admin/roles error)."
+      ]
+    },
+    {
+      "id": "REQ-17",
+      "text": "Ensure the frontend displays a clear English error message when the backend returns the authorization error string \"only admin can assign user roles\" during login (in case it occurs again), instead of showing the raw backend error text.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-6"
+        ],
+        "quotes": [
+          "When I click login, it says \"only admin can assign user roles\""
+        ]
+      },
+      "acceptanceCriteria": [
+        "If the login request fails with an error containing \"only admin can assign user roles\", the login screen shows a user-friendly English toast/message (and does not display the raw error text)."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not edit files under frontend/src/hooks/useActor.ts or other paths listed in frontend.immutablePaths.",
+    "Backend must remain a single Motoko actor in backend/main.mo (no additional backend services).",
+    "Use English for any user-facing text."
+  ],
+  "nonGoals": [
+    "Adding new authentication methods (e.g., Internet Identity-only auth) beyond the existing two-username/password scheme.",
+    "Changing the predefined allowed credentials beyond Darling/181818 and MyHoney/182518.",
+    "Implementing new chat features unrelated to fixing the login authorization error."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

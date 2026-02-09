@@ -1,0 +1,205 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 7,
+  "summary": "Build a two-person mobile-friendly chat app named \"Milky Way\" with login, a room chat UI, profile/status management, and in-chat media/voice messaging that persists across logins without saving media to the device file manager.",
+  "architectural_notes": [
+    "Media (images, videos, voice notes) should not be saved to the device file manager; keep media accessible only within the in-app room chat and persistent across login/logout."
+  ],
+  "known_issues": [
+    "Login authentication is failing even when users enter the documented correct credentials (Darling/181818 and MyHoney/182518).",
+    "Login attempt triggers an authorization error: \"only admin can assign user roles\" when clicking Login."
+  ],
+  "isFixRequest": true,
+  "existing_features": [
+    {
+      "id": "feature-create-app-branding-for-a-two-person-chat-app-named-milky-way-with-tagline-to-infinity-and-beyond-and-display-this-branding-on-the-login-screen-and-any-top-level-landing-ui",
+      "title": "Create app branding for a two-person chat app named \"Milky Way\" with tagline \"To Infinity and Beyond\" and display this branding on the login screen and any top-level landing UI.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-username-password-login-limited-to-exactly-two-predefined-users-1-username-darling-password-181818-and-2-username-myhoney-password-182518-block-any-other-usernames-passwords-from-logging-in",
+      "title": "Implement username/password login limited to exactly two predefined users: (1) username: Darling, password: 181818 and (2) username: MyHoney, password: 182518. Block any other usernames/passwords from logging in.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-the-room-chat-ui-with-a-header-that-shows-the-current-user-s-profile-picture-on-the-left-and-a-three-dots-menu-on-the-right-with-actions-profile-gallery-logout",
+      "title": "Build the room chat UI with a header that shows the current user's profile picture on the left and a three-dots menu on the right with actions: Profile, Gallery, Logout.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-profile-screen-modal-accessible-from-the-menu-that-allows-the-logged-in-user-to-change-their-profile-picture-and-status-and-ensure-both-users-can-see-the-other-user-s-current-profile-picture-and-status-in-the-room-chat-ui",
+      "title": "Implement a Profile screen/modal accessible from the menu that allows the logged-in user to change their profile picture and status, and ensure both users can see the other user's current profile picture and status in the room chat UI.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-chat-timeline-date-separators-whenever-a-new-day-starts-formatted-as-dd-mm-yyyy-e-g-09-02-2026",
+      "title": "Add chat timeline date separators whenever a new day starts, formatted as DD/MM/YYYY (e.g., 09/02/2026).",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-message-composer-controls-a-clip-icon-to-attach-and-send-images-videos-and-a-record-icon-to-record-and-send-voice-notes",
+      "title": "Add message composer controls: a clip icon to attach and send images/videos, and a record icon to record and send voice notes.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-attached-images-videos-and-recorded-voice-notes-are-handled-in-app-and-are-not-automatically-saved-downloaded-to-the-mobile-device-file-manager-gallery-by-the-application",
+      "title": "Ensure attached images/videos and recorded voice notes are handled in-app and are not automatically saved/downloaded to the mobile device file manager/gallery by the application.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-gallery-screen-modal-accessible-from-the-menu-that-shows-the-media-shared-in-the-chat-images-videos-voice-notes-and-allows-viewing-playing-items-within-the-app",
+      "title": "Implement a Gallery screen/modal accessible from the menu that shows the media shared in the chat (images, videos, voice notes) and allows viewing/playing items within the app.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-room-chat-background-visual-background-behind-the-message-list-and-ensure-it-remains-readable-with-message-bubbles-and-overlays",
+      "title": "Add a room chat background (visual background behind the message list) and ensure it remains readable with message bubbles and overlays.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-choose-and-apply-a-coherent-visual-theme-colors-typography-spacing-and-component-styling-appropriate-for-a-milky-way-space-vibe-and-enforce-it-consistently-across-login-chat-profile-and-gallery-screens-avoid-default-plain-styling",
+      "title": "Choose and apply a coherent visual theme (colors, typography, spacing, and component styling) appropriate for a \"Milky Way\" space vibe, and enforce it consistently across login, chat, profile, and gallery screens (avoid default/plain styling).",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-generate-and-add-required-static-image-assets-and-render-them-from-the-frontend-as-static-files-do-not-serve-generated-images-through-the-backend",
+      "title": "Generate and add required static image assets, and render them from the frontend as static files (do not serve generated images through the backend).",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-align-the-frontend-login-request-payload-with-the-backend-login-method-so-the-app-can-authenticate-successfully-using-the-current-username-password-form-values",
+      "title": "Align the frontend login request payload with the backend login method so the app can authenticate successfully using the current username/password form values.",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-the-frontend-displays-a-clear-english-error-message-when-the-backend-returns-the-authorization-error-string-only-admin-can-assign-user-roles-during-login-in-case-it-occurs-again-instead-of-showing-the-raw-backend-error-text",
+      "title": "Ensure the frontend displays a clear English error message when the backend returns the authorization error string \"only admin can assign user roles\" during login (in case it occurs again), instead of showing the raw backend error text.",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Create app branding: name \"Milky Way\" with tagline \"To Infinity and Beyond\"",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Implement two-user-only authentication (username/password) with predefined accounts: Darling/181818 and MyHoney/182518",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Build room chat screen header: left profile picture; right three-dots menu (Profile, Gallery, Logout)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Profile feature: allow changing own profile picture and status; show other user's profile picture and status",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Chat timeline: insert a new-day date separator formatted DD/MM/YYYY when day changes",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Messaging attachments: clip icon to send images/videos and record icon for voice notes",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Media handling: ensure images/videos/voice notes are not saved to mobile file manager and remain accessible within the chat across login/logout",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Mobile-first UI: ensure the app is easy to use on mobile; include room chat background",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "Persist chat state in the backend so that messages and their associated media (images, videos, voice notes) remain available in the room chat after users log out and log back in.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-18",
+      "summary": "Make the app mobile-first and easy to use on mobile, including a responsive layout for the login screen, room chat, profile, and gallery.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-19",
+      "summary": "Fix backend authentication so that logging in with the exact credentials Darling / 181818 and MyHoney / 182518 succeeds when entered from the current frontend login form.",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-20",
+      "summary": "Update the backend login flow to stop triggering the authorization error \"only admin can assign user roles\" when a user logs in with the valid credentials (Darling/181818 or MyHoney/182518). Specifically, remove or replace the current role-assignment call that requires admin privileges during login so that successful credential verification results in the caller being treated as authenticated for subsequent operations (profiles, messages, gallery) without needing any admin initialization or admin token.",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Milky Way",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

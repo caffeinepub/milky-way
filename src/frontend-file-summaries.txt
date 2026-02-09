@@ -1,0 +1,16 @@
+{
+  "frontend/src/App.tsx": "Main app component that handles routing between login and chat screens based on authentication state, with theme provider and toast notifications.",
+  "frontend/src/auth/usePasswordSession.ts": "Zustand store for managing password-based session state with username and password (instead of principal) for authentication persistence.",
+  "frontend/src/hooks/useQueries.ts": "React Query hooks for backend operations with login mutation that sanitizes authorization/role errors into user-friendly messages, handles credential errors, and manages cache invalidation.",
+  "frontend/src/pages/LoginScreen.tsx": "Login screen with Milky Way branding that submits username and password to backend, stores session credentials on success, and displays sanitized error messages without exposing raw backend text.",
+  "frontend/src/pages/RoomChatScreen.tsx": "Main chat screen layout with header, scrollable message list, composer, and modals that uses username-based session instead of principal for current user identification.",
+  "frontend/src/components/RoomChatHeader.tsx": "Chat header displaying current user avatar, other user info, and three-dots menu with Profile, Gallery, and Logout options.",
+  "frontend/src/components/MessageList.tsx": "Message list component that renders chat messages with date separators, using a heuristic to determine current user messages when principal comparison is unavailable.",
+  "frontend/src/components/MessageBubble.tsx": "Individual message bubble component supporting text, images, videos, and voice notes with in-app playback controls.",
+  "frontend/src/components/MessageComposer.tsx": "Message input composer with clip icon for media attachments, microphone for voice recording, and send button.",
+  "frontend/src/components/ProfileModal.tsx": "Modal dialog for editing user profile picture and status with image upload and save functionality.",
+  "frontend/src/components/GalleryModal.tsx": "Modal displaying all shared media (images, videos, voice notes) in a grid with in-app viewer for full-screen playback.",
+  "frontend/src/utils/dateFormat.ts": "Utility functions for formatting timestamps as DD/MM/YYYY date separators and generating day keys for message grouping.",
+  "frontend/src/index.css": "Global styles with space-themed OKLCH color system including cosmic blues, nebula pinks, and starlight accents for dark mode.",
+  "frontend/tailwind.config.js": "Tailwind configuration extended with custom space-themed colors, Inter font family, and design tokens for the Milky Way aesthetic."
+}

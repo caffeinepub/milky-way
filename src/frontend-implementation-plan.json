@@ -1,0 +1,26 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Show user-friendly login message for admin-only role-assignment authorization error",
+  "requirements": [
+    {
+      "id": "REQ-17",
+      "summary": "Map the backend login authorization error \"only admin can assign user roles\" to a clear, user-friendly English message and avoid rendering the raw backend text.",
+      "acceptanceCriteria": [
+        "If the login request fails with an error containing \"only admin can assign user roles\", the login screen shows a user-friendly English toast/message (and does not display the raw error text)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useQueries.ts",
+          "operation": "modify",
+          "description": "Update the useLogin mutation to detect an error containing the string \"only admin can assign user roles\" (from thrown Error or stringified trap) and rethrow a sanitized, user-friendly English error message instead of propagating the raw backend text. Use the selected \"authorization\" component guidance for handling authorization traps gracefully in the UI; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/LoginScreen.tsx",
+          "operation": "modify",
+          "description": "Adjust login error toast handling to ensure it never displays raw backend error text; prefer showing the sanitized error from useLogin (and fall back to a generic English login failure message when the error is not an Error instance). Use the selected \"authorization\" component guidance for error handling; verify the component's usage instructions before implementing."
+        }
+      ]
+    }
+  ]
+}
